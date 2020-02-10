@@ -1,0 +1,69 @@
+{% extends "clients/base.html" %}
+{% block content %}
+<h2>Filterable Table</h2>
+  <p>Type something in the input field to search the table for first names, last names or emails:</p>
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Credit Score</th>
+          <th>Geography</th>
+          <th>Gender</th>
+          <th>Age</th>
+          <th>Tenure</th>
+          <th>Balance</th>
+          <th>Products</th>
+          <th>Credit Card</th>
+          <th>Active</th>
+          <th>Salary</th>
+          <th>Exited</th>
+        </tr>
+      </thead>
+      <tbody id="tableData">
+      {% for client in clients %}
+          <tr>
+            <td>{{ client.client_id }}</td>
+            <td>{{ client.client_name }}</td>
+            <td>{{ client.credit_score }}</td>
+            <td>{{ client.geography }}</td>
+            <td>{{ client.gender }}</td>
+            <td>{{ client.age }}</td>
+            <td>{{ client.tenure }}</td>
+            <td>{{ client.balance }}</td>
+            <td>{{ client.num_of_products }}</td>
+            <td>{{ client.has_credit_card }}</td>
+            <td>{{ client.is_active_member }}</td>
+            <td>{{ client.estimated_salary }}</td>
+            <td>{{ client.exited }}</td>
+          </tr>
+      {% endfor %}
+      </tbody>
+
+    </table>
+
+
+
+  {% if is_paginated %}
+    {% if page_obj.has_previous %}
+      <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+    {% endif %}
+  {% endif %}
+
+{% endblock content %}
