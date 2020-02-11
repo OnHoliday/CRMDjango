@@ -16,3 +16,18 @@ class ClientListView(ListView):
 class ClientDetailView(DetailView):
     model = Client
     # context_object_name = 'client'
+
+
+def piechart(request):
+    labels = []
+    data = []
+
+    queryset = Client.objects.order_by('-balance')[:5]
+    for c in queryset:
+        labels.append(c.client_name)
+        data.append(float(c.balance))
+
+    return render(request, 'clients/piechart.html', {
+        'labels': labels,
+        'data': data,
+    })

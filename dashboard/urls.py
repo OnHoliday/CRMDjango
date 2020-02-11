@@ -20,5 +20,8 @@ from clients import views as clients_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('clients/', clients_views.ClientListView.as_view(template_name='clients/clients_client.html'), name='clients_client'),
-    path('', include('clients.urls')),
+    path('piechart/', clients_views.piechart, name='piechart'),
+    path('', include('clients.urls'))
+
+
 ]

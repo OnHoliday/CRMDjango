@@ -27,8 +27,8 @@ DEBUG = True
 
 
 
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['kpdjangocrm.pythonanywhere.com']
-
 
 # Application definition
 
