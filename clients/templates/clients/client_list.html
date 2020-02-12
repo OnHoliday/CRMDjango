@@ -25,19 +25,19 @@
       <tbody id="tableData">
       {% for client in clients %}
           <tr>
-            <td>{{ client.client_id }}</td>
-            <td>{{ client.client_name }}</td>
-            <td>{{ client.credit_score }}</td>
-            <td>{{ client.geography }}</td>
-            <td>{{ client.gender }}</td>
-            <td>{{ client.age }}</td>
-            <td>{{ client.tenure }}</td>
-            <td>{{ client.balance }}</td>
-            <td>{{ client.num_of_products }}</td>
-            <td>{{ client.has_credit_card }}</td>
-            <td>{{ client.is_active_member }}</td>
-            <td>{{ client.estimated_salary }}</td>
-            <td>{{ client.exited }}</td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.client_id }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.client_name }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.credit_score }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.geography }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.gender }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.age }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.tenure }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.balance }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.num_of_products }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.has_credit_card }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.is_active_member }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.estimated_salary }}</a></td>
+            <td><a href="/client/{{ client.client_id }}">{{ client.exited }}</td>
           </tr>
       {% endfor %}
       </tbody>
@@ -66,6 +66,6 @@
     {% endif %}
   {% endif %}
 
-  
+
 
 {% endblock content %}

@@ -27,8 +27,8 @@ DEBUG = True
 
 
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['kpdjangocrm.pythonanywhere.com']
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['kpdjangocrm.pythonanywhere.com']
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chartjs',
 ]
 
 MIDDLEWARE = [
